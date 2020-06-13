@@ -4,20 +4,20 @@ services:
     - docker
 
 before_install:
-    - docker build -t kart-projects/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t kgunasekdocker/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true kart-projects/react-test npm test
+    - docker run -e CI=true kgunasekdocker/react-test npm test
 
 after_success:
-    - docker build -t kart-projects/multi-client ./client
-    - docker build -t kart-projects/multi-nginx ./nginx
-    - docker build -t kart-projects/multi-server ./server
-    - docker build -t kart-projects/multi-worker ./worker
+    - docker build -t kgunasekdocker/multi-client ./client
+    - docker build -t kgunasekdocker/multi-nginx ./nginx
+    - docker build -t kgunasekdocker/multi-server ./server
+    - docker build -t kgunasekdocker/multi-worker ./worker
     # Log in to docker CLI    
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
     # Take those images and push it to docker hub
     - docker push kgunasekdocker/multi-client
     - docker push kgunasekdocker/multi-nginx
-    - docker push kgunasekdocker/multi-server
+    - docker push kgunasekdockers/multi-server
     - docker push kgunasekdocker/multi-worker
