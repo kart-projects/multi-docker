@@ -14,8 +14,8 @@ after_success:
     - docker build -t kart-projects/multi-nginx ./nginx
     - docker build -t kart-projects/multi-server ./server
     - docker build -t kart-projects/multi-worker ./worker
-    # Log in to docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # Log in to docker CLI    
+    - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD docker.io
     # Take those images and push it to docker hub
     - docker push kart-projects/multi-client
     - docker push kart-projects/multi-nginx
