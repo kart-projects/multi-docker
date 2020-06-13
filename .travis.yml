@@ -19,5 +19,5 @@ after_success:
     # Take those images and push it to docker hub
     - docker push kgunasekdocker/multi-client
     - docker push kgunasekdocker/multi-nginx
-    - docker push kgunasekdockers/multi-server
+    - docker push kgunasekdocker/multi-server
     - docker push kgunasekdocker/multi-worker
