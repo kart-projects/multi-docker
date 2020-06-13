@@ -15,9 +15,9 @@ after_success:
     - docker build -t kart-projects/multi-server ./server
     - docker build -t kart-projects/multi-worker ./worker
     # Log in to docker CLI    
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push it to docker hub
-    - docker push kart-projects/multi-client
-    - docker push kart-projects/multi-nginx
-    - docker push kart-projects/multi-server
-    - docker push kart-projects/multi-worker
+    - docker push kgunasekdocker/multi-client
+    - docker push kgunasekdocker/multi-nginx
+    - docker push kgunasekdocker/multi-server
+    - docker push kgunasekdocker/multi-worker
